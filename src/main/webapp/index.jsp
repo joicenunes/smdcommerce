@@ -58,9 +58,11 @@
                 <c:forEach var="produto" items="${listaProdutos}">
                     <div class="product-card">
                         <c:if test="${not empty produto.fotoBytes}">
-                            <img src="${pageContext.request.contextPath}/imagem?id=${produto.id}" alt="<c:out value='${produto.descricao}'/>">
+                            <%-- Correção: trocado 'produto.descricao' por 'produto.nome' --%>
+                            <img src="${pageContext.request.contextPath}/imagem?id=${produto.id}" alt="<c:out value='${produto.nome}'/>">
                         </c:if>
-                        <h3><c:out value="${produto.descricao}" /></h3>
+                        <%-- Correção: trocado 'produto.descricao' por 'produto.nome' --%>
+                        <h3><c:out value="${produto.nome}" /></h3>
                         <p class="price">
                             <fmt:setLocale value="pt_BR"/>
                             <fmt:formatNumber value="${produto.preco}" type="currency"/>
@@ -110,9 +112,39 @@
     </footer>
 
     <script>
+        // CORREÇÃO: Função implementada para enviar o ID do produto para o servlet
         function adicionarAoCarrinho(id) {
-            // Implementar a lógica para adicionar ao carrinho, possivelmente com AJAX
-            console.log("Adicionar produto com ID: " + id);
+            const button = event.target;
+            const originalText = button.textContent;
+            button.disabled = true;
+            button.textContent = 'Adicionando...';
+
+            fetch('${pageContext.request.contextPath}/adicionar-carrinho', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'id=' + id
+            })
+            .then(response => {
+                if (response.ok) {
+                    button.textContent = 'Adicionado!';
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.disabled = false;
+                    }, 1500);
+                } else {
+                    alert('Erro ao adicionar o produto ao carrinho.');
+                    button.textContent = originalText;
+                    button.disabled = false;
+                }
+            })
+            .catch(error => {
+                console.error('Erro na requisição:', error);
+                alert('Ocorreu um erro de comunicação.');
+                button.textContent = originalText;
+                button.disabled = false;
+            });
         }
 
         if (document.getElementById('login-form')) {

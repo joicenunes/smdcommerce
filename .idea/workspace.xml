@@ -5,20 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a23b1afb-709f-4261-be80-3b5801204398" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controle/AdicionarCarrinhoServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controle/AtualizarCarrinhoServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controle/FinalizarCompraServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controle/RemoverItemServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/modelo/venda/VendaDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/modelo/venda_produto/VendaProdutoDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/confirmacao-compra.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controle/ImagemServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controle/ImagemServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controle/acesso/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controle/acesso/AuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controle/admin/AdminCategoriaServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controle/admin/AdminCategoriaServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controle/admin/AdminPerfilServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controle/admin/AdminPerfilServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controle/admin/AdminProdutoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controle/admin/AdminProdutoServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controle/admin/AdminUsuarioServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controle/admin/AdminUsuarioServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/acesso/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/acesso/Token.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/acesso/TokenDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/acesso/TokenDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/produto/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/produto/Produto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modelo/produto/ProdutoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/produto/ProdutoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/usuario/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/usuario/UsuarioDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/ConnectionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/gerenciar-categorias.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/gerenciar-categorias.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/venda/Venda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelo/venda/Venda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/carrinho.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/carrinho.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,16 +49,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/nagah/OneDrive/Área de Trabalho/SMD/smdcommerce&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "sami",
+    "last_opened_file_path": "C:/Users/nagah/OneDrive/Área de Trabalho/SMD/smdcommerce"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nagah\OneDrive\Área de Trabalho\SMD\smdcommerce\src\main\webapp\WEB-INF\views" />

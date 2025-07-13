@@ -26,7 +26,8 @@ public class ProdutoDAO {
     private Produto extrairProdutoDoResultSet(ResultSet rs) throws SQLException {
         Produto produto = new Produto();
         produto.setId(rs.getInt("id"));
-        produto.setDescricao(rs.getString("descricao"));
+        // Correção: Usando setNome() em vez de setDescricao()
+        produto.setNome(rs.getString("descricao"));
         produto.setPreco(rs.getBigDecimal("preco"));
         produto.setFotoBytes(rs.getBytes("foto"));
         produto.setQuantidade(rs.getInt("quantidade"));
@@ -96,7 +97,8 @@ public class ProdutoDAO {
         String sql = "INSERT INTO produto (descricao, preco, quantidade, foto, categoria_id) VALUES (?, ?, ?, ?, ?)";
         try (Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
              PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setString(1, produto.getDescricao());
+            // Correção: Usando getNome() em vez de getDescricao()
+            ps.setString(1, produto.getNome());
             ps.setBigDecimal(2, produto.getPreco());
             ps.setInt(3, produto.getQuantidade());
             ps.setBytes(4, produto.getFotoBytes());
@@ -114,7 +116,8 @@ public class ProdutoDAO {
                 "WHERE id = ?";
         try (Connection c = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
              PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setString(1, produto.getDescricao());
+            // Correção: Usando getNome() em vez de getDescricao()
+            ps.setString(1, produto.getNome());
             ps.setBigDecimal(2, produto.getPreco());
             ps.setInt(3, produto.getQuantidade());
             ps.setInt(4, produto.getCategoria().getId());

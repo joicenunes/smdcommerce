@@ -1,7 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         id="WebApp_ID" version="4.0">
+
   <display-name>smd-web-tf</display-name>
+
   <welcome-file-list>
     <welcome-file>principal</welcome-file>
   </welcome-file-list>
+
+  <!-- Mapeamento para RemoverItemServlet -->
+  <servlet>
+    <servlet-name>RemoverItemServlet</servlet-name>
+    <servlet-class>controle.RemoverItemServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoverItemServlet</servlet-name>
+    <url-pattern>/remover-item</url-pattern>
+  </servlet-mapping>
+
+  <!-- Mapeamento para AdicionarCarrinhoServlet -->
+  <servlet>
+    <servlet-name>AdicionarCarrinhoServlet</servlet-name>
+    <servlet-class>controle.AdicionarCarrinhoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdicionarCarrinhoServlet</servlet-name>
+    <url-pattern>/adicionar-carrinho</url-pattern>
+  </servlet-mapping>
+
+  <!-- Mapeamento para AtualizarCarrinhoServlet -->
+  <servlet>
+    <servlet-name>AtualizarCarrinhoServlet</servlet-name>
+    <servlet-class>controle.AtualizarCarrinhoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AtualizarCarrinhoServlet</servlet-name>
+    <url-pattern>/atualizar-carrinho</url-pattern>
+  </servlet-mapping>
+
+  <!-- Mapeamento para FinalizarCompraServlet -->
+  <servlet>
+    <servlet-name>FinalizarCompraServlet</servlet-name>
+    <servlet-class>controle.FinalizarCompraServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FinalizarCompraServlet</servlet-name>
+    <url-pattern>/finalizar-compra</url-pattern>
+  </servlet-mapping>
+
 </web-app>

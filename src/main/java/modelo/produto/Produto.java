@@ -1,29 +1,33 @@
 package modelo.produto;
 
 import java.math.BigDecimal;
-
+import java.util.Objects;
 import modelo.categoria.Categoria;
 
 public class Produto {
 	private int id;
-	private String descricao;
+	private String nome; // Alterado de 'descricao' para 'nome'
 	private BigDecimal preco;
 	private byte[] fotoBytes;
 	private int quantidade;
 	private Categoria categoria;
 
+	// Getters e Setters
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getDescricao() {
-		return descricao;
+
+	// Getter e Setter para 'nome'
+	public String getNome() {
+		return nome;
 	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
+
 	public BigDecimal getPreco() {
 		return preco;
 	}
@@ -45,4 +49,16 @@ public class Produto {
 		this.categoria = categoria;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Produto produto = (Produto) o;
+		return id == produto.id;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 }

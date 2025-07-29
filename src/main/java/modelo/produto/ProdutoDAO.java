@@ -143,4 +143,21 @@ public class ProdutoDAO {
             return false;
         }
     }
+
+    // Adicione este método para relatório de estoque
+    public List<Produto> listarPorEstoqueDesc() {
+        List<Produto> produtos = new ArrayList<>();
+        String sql = "SELECT p.id, p.descricao, p.preco, p.foto, p.quantidade, c.id as categoria_id, c.descricao as categoria_descricao " +
+                "FROM Produto p INNER JOIN Categoria c ON p.categoria_id = c.id ORDER BY p.quantidade, p.descricao ASC";
+        try (Connection conn = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                produtos.add(extrairProdutoDoResultSet(rs));
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro ao listar produtos por estoque.", ex);
+        }
+        return produtos;
+    }
 }

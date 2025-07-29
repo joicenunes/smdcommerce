@@ -1,5 +1,7 @@
 package modelo.usuario;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author Leonardo Oliveira Moreira
@@ -16,6 +18,8 @@ public class Usuario {
     private String senha;
     private String image;
     private boolean administrador;
+    private int quantidadePedidos;
+    private BigDecimal valorTotalComprado;
     
     public Usuario() {}
     
@@ -89,6 +93,22 @@ public class Usuario {
 
     public void setAdministrador(boolean administrador) {
         this.administrador = administrador;
+    }
+
+    public int getQuantidadePedidos() {
+        return quantidadePedidos;
+    }
+
+    public void setQuantidadePedidos(int quantidadePedidos) {
+        this.quantidadePedidos = quantidadePedidos;
+    }
+
+    public java.math.BigDecimal getValorTotalComprado() {
+        return valorTotalComprado;
+    }
+
+    public void setValorTotalComprado(java.math.BigDecimal valorTotalComprado) {
+        this.valorTotalComprado = valorTotalComprado;
     }
     
 }

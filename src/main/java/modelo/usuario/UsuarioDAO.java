@@ -132,4 +132,34 @@ public class UsuarioDAO {
         }
         return usuarios;
     }
+
+    /**
+     * Lista os 20 clientes que mais compraram, trazendo também a soma da coluna valor_total das vendas.
+     */
+    public List<Usuario> listarTop20ClientesMaisCompraram() {
+        List<Usuario> clientes = new ArrayList<>();
+        String sql = "SELECT u.id, u.nome, u.email, u.login, u.endereco, COUNT(v.id) as pedidos_realizados, SUM(v.valor_total) as valor_total " +
+                     "FROM usuario u INNER JOIN venda v ON u.id = v.usuario_id " +
+                     "GROUP BY u.id, u.nome, u.email, u.login, u.endereco " +
+                     "ORDER BY pedidos_realizados DESC, valor_total DESC " +
+                     "LIMIT 20";
+        try (Connection conn = ConnectionFactory.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                Usuario usuario = new Usuario();
+                usuario.setId(rs.getInt("id"));
+                usuario.setNome(rs.getString("nome"));
+                usuario.setEmail(rs.getString("email"));
+                usuario.setLogin(rs.getString("login"));
+                usuario.setEndereco(rs.getString("endereco"));
+                usuario.setQuantidadePedidos(rs.getInt("pedidos_realizados")); // Adicione getter/setter
+                usuario.setValorTotalComprado(rs.getBigDecimal("valor_total")); // Adicione getter/setter
+                clientes.add(usuario);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return clientes;
+    }
 }

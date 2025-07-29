@@ -1,6 +1,7 @@
 package modelo.venda;
 
 import modelo.usuario.Usuario;
+import modelo.produto.Produto;
 import modelo.venda_produto.VendaProduto;
 import modelo.venda_produto.VendaProdutoDAO;
 import util.ConnectionFactory;
@@ -92,5 +93,30 @@ public class VendaDAO {
             ex.printStackTrace();
         }
         return vendas;
+    }
+
+    // Adicione este método para relatório dos mais vendidos
+    public List<Produto> listarProdutosMaisVendidos(int limite) {
+        List<Produto> produtos = new ArrayList<>();
+        String sql = "SELECT p.id, p.descricao, SUM(vp.quantidade) as total_vendido, SUM(vp.preco * vp.quantidade) as receita_total " +
+                     "FROM venda_produto vp INNER JOIN produto p ON vp.produto_id = p.id " +
+                     "GROUP BY p.id, p.descricao ORDER BY total_vendido DESC LIMIT ?";
+        try (Connection conn = util.ConnectionFactory.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, limite);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Produto produto = new Produto();
+                    produto.setId(rs.getInt("id"));
+                    produto.setDescricao(rs.getString("descricao"));
+                    produto.setQuantidade(rs.getInt("total_vendido"));
+                    produto.setPreco(rs.getBigDecimal("receita_total"));
+                    produtos.add(produto);
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return produtos;
     }
 }
